@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+const port = process.env.PORT || 3000;
 app.set('viewengine','hbs');
 hbs.registerPartials(__dirname +'/views/partials');
 hbs.registerHelper('getYear',() =>{
@@ -42,6 +43,6 @@ app.get('/bad',(req,res) =>{
         Message:'Bad Request'
     });
 });
-app.listen(3000,()=>{
-    console.log('server is running at port 3000');
+app.listen(port,()=>{
+    console.log(`server is running at port ${port}`);
 });
